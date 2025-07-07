@@ -76,3 +76,51 @@ def jsonValidity():
         except Exception as e:
                 print(f"Error reading file: {e}\n")
                 return False
+
+
+
+
+"""
+Checking cache if "path" already exists for data and schema integrity
+and ease of usage
+"""
+
+def cacheFileCheck():
+        filePathList = []
+        filePath = jsonValidity()
+
+
+        """
+        Checking existence of 'cache.json' and loading the data of the same file in
+        variable 'data' if the file exists. Otherwise, an error message is prompted
+        """
+
+        try:
+                with open("cache.json", "r") as file:
+                        data = json.load(file)
+        except FileNotFoundError:
+                print("'cache.json' not found. Please create it with a valid JSON array structure.")
+                return
+        except json.JSONDecodeError:
+                print("'cache.json' seems to have some issue")
+                return
+        except Exception as e:
+                print("Unexpected error occured:", e)
+                return
+
+        for i in data:
+                try:
+                        filePathList.append(os.path.normpath(i["path"]))
+                except KeyError:
+                        print("Invalid cache format: 'path' key missing in one of the entries.")
+
+
+
+        """
+        Checking if entered JSON path is already cached. If it is cached, then
+        it is assumed that the JSON is already following a schema, considering
+        there have been no changes made in 'cache.json' file externally.
+        """
+
+if __name__ == "__main__":
+        cacheFileCheck()

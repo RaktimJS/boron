@@ -1,0 +1,22 @@
+[
+        {
+                "path": "C:/Users/hp/Desktop/Master_Projects/jsql/test.json",
+                "schema": "'id'{'Name', 'Class': int, 'Subjects'['Math', 'Science', 'Computer']}"
+        },
+        {
+                "path": "C:/Users/hp/Desktop/Master_Projects/jsql/students.json",
+                "schema": "'student_id'{'Name': str, 'Age': int, 'Grades': {'Math': float, 'English': float}}"
+        },
+        {
+                "path": "C:/Users/hp/Desktop/Master_Projects/jsql/teachers.json",
+                "schema": "'teacher_id'{'Name': str, 'Subjects': ['Math', 'Physics'], 'Experience': int}"
+        },
+        {
+                "path": "C:/Users/hp/Desktop/Master_Projects/jsql/courses.json",
+                "schema": "'course_id'{'Title': str, 'Credits': int, 'Instructor': str}"
+        },
+        {
+                "path": "C:/Users/hp/Desktop/Master_Projects/jsql/results.json",
+                "schema": "'result_id'{'Student': str, 'Marks': {'Math': int, 'Science': int}, 'Passed': bool}"
+        }
+]
