@@ -58,6 +58,8 @@ def jsonValidity():
         except Exception as e:
                 print(f"Error reading file: {e}\n")
                 return False
+
+
 """
 Checking validity of a JSON file, i.e, if the JSON is structured
 or not
