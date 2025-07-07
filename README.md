@@ -1,4 +1,4 @@
-# JSON Simple Query Language (JSQL)
+# JSON Specific Query Language (JSQL)
 _Read as "Jasqel" or "Jas-QL"_
 
 ## Made by: Raktimjyoti Sarma
@@ -7,7 +7,7 @@ _Read as "Jasqel" or "Jas-QL"_
 
 ## What is JSQL?
 
-**JSQL (JSON Simple Query Language)** is a domain-specific language (DSL) designed for querying and manipulating JSON data using a familiar, SQL-like syntax. Inspired by the clarity and structure of traditional SQL, JSQL brings that same power to hierarchical JSON documents.
+**JSQL (JSON Specific Query Language)** is a domain-specific language (DSL) designed for querying and manipulating JSON data using a familiar, SQL-like syntax. Inspired by the clarity and structure of traditional SQL, JSQL brings that same power to hierarchical JSON documents.
 
 **NOTE:** This is the MVP (Minimum Viable Product) version.
 
