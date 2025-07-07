@@ -32,7 +32,4 @@ Sometimes, you don't need a full database engine. You just need to query and twe
 - Modify values inside nested structures  
 - SQL-like syntax: `SELECT`, `FROM`, `WHERE`, etc.  
 - Lightweight and easy to use—no dependencies or bloat
-
-> Think of it like SQL’s younger cousin who only works with JSON and doesn’t need a whole RDBMS to get stuff done.
-
 ---
