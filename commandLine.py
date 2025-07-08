@@ -35,7 +35,7 @@ def fileTypeExistenceVerify():
                                 else:
                                         print("File isn't JSON\n")
                         else:
-                                print("The entered path is invalid\n")
+                                print("Invalid Path\n")
                 except EOFError:
                         print("Empty input not supported\n")
 
@@ -50,34 +50,18 @@ def jsonValidity():
 
         try:
                 with open(filePath, "r") as f:
-                        json.load(f)
-                        return filePath
+                        data = json.load(f)
+
+                        if isinstance(data, dict):
+                                return filePath
+                        else:
+                                raise ValueError("Array-type JSON not supported")
         except json.JSONDecodeError as e:
                 print(f"Invalid JSON: {e}\n")
-                return False
+                return
         except Exception as e:
                 print(f"Error reading file: {e}\n")
-                return False
-
-
-"""
-Checking validity of a JSON file, i.e, if the JSON is structured
-or not
-"""
-
-def jsonValidity():
-        filePath = fileTypeExistenceVerify()
-
-        try:
-                with open(filePath, "r") as f:
-                        json.load(f)
-                        return filePath
-        except json.JSONDecodeError as e:
-                print(f"Invalid JSON: {e}\n")
-                return False
-        except Exception as e:
-                print(f"Error reading file: {e}\n")
-                return False
+                return
 
 
 
@@ -99,7 +83,7 @@ def cacheFileCheck():
 
         try:
                 with open("cache.json", "r") as file:
-                        data = json.load(file)
+                        cacheData = json.load(file)
         except FileNotFoundError:
                 print("'cache.json' not found. Please create it with a valid JSON array structure.")
                 return
@@ -110,7 +94,8 @@ def cacheFileCheck():
                 print("Unexpected error occured:", e)
                 return
 
-        for i in data:
+
+        for i in cacheData:
                 try:
                         filePathList.append(os.path.normpath(i["path"]))
                 except KeyError:
@@ -120,9 +105,29 @@ def cacheFileCheck():
 
         """
         Checking if entered JSON path is already cached. If it is cached, then
-        it is assumed that the JSON is already following a schema, considering
-        there have been no changes made in 'cache.json' file externally.
+        it is assumed that a schema has been defined and the JSON file is following
+        the schema, considering there have been no changes made in 'cache.json'
+        file externally.
         """
 
+
+        if filePath in filePathList:
+                try:
+                        with open(filePath, "r") as file:
+                                data = json.load(file)
+                except json.JSONDecodeError as e:
+                        print("Error in the JSON file:", e)
+                except Exception as e:
+                        print("Unexpected error occured:", e)
+
+
+        elif filePath != None:
+                """
+                Schema definition when the file is uncached
+                """
+
+                print("Schema definition required")
+        else:
+                print("Garbage")
 if __name__ == "__main__":
         cacheFileCheck()
