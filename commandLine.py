@@ -6,6 +6,8 @@
 import os
 import json
 
+import schema
+
 os.system('cls' if os.name == "nt" else "clear")
 
 
@@ -121,6 +123,16 @@ def cacheFileCheck():
                         print("Unexpected error occured:", e)
 
 
+                """
+                Fetching schema of the JSON when its path is found in cache. For
+                fetching the schema, the program looks at the ver first key-value
+                pair in the JSON, and fetches the data and converts it into a
+                dictionary data type. When a command is passed, the program will
+                try to match the syntax with the dictionary. If any mismatch is
+                detected, the program will through an error. 
+                """
+
+                print("Calling schema validator function from schema.py module")
         elif filePath != None:
                 """
                 Schema definition when the file is uncached
@@ -129,5 +141,9 @@ def cacheFileCheck():
                 print("Schema definition required")
         else:
                 print("Garbage")
+
+
+
+
 if __name__ == "__main__":
         cacheFileCheck()
