@@ -1,6 +1,16 @@
 [
         {
                 "path": "C:/Users/hp/Desktop/Master_Projects/jsql/test.json",
-                "schema": "'id'{'Name': str, 'Class': int, 'Subjects'['Math', 'Science', 'Computer']}"
+                "schema": {
+                        "id": {
+                                "Name": "str",
+                                "Class": "int",
+                                "Subjects": [
+                                        "Math",
+                                        "Science",
+                                        "Computer"
+                                ]
+                        }
+                }
         }
 ]
