@@ -93,7 +93,7 @@ def cacheFileCheck():
                 print("'cache.json' seems to have some issue")
                 return
         except Exception as e:
-                print("Unexpected error occured:", e)
+                print("Unexpected error:", e)
                 return
 
 
@@ -120,7 +120,7 @@ def cacheFileCheck():
                 except json.JSONDecodeError as e:
                         print("Error in the JSON file:", e)
                 except Exception as e:
-                        print("Unexpected error occured:", e)
+                        print("Unexpected error:", e)
 
 
                 """
