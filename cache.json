@@ -3,13 +3,9 @@
                 "path": "C:/Users/hp/Desktop/Master_Projects/jsql/test.json",
                 "schema": {
                         "id": {
-                                "Name": "str",
-                                "Class": "int",
-                                "Subjects": [
-                                        "Math",
-                                        "Science",
-                                        "Computer"
-                                ]
+                                "Name": null,
+                                "Class": null,
+                                "Subjects": []
                         }
                 }
         }

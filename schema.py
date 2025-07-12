@@ -38,5 +38,4 @@ def fetcher(filePath:str):
         for i in cacheData:
                 if filePath in os.path.normpath(i["path"]):
                         schema = i["schema"]
-                        print(schema)
                         return schema
