@@ -5,7 +5,40 @@
                         "id": {
                                 "Name": null,
                                 "Class": null,
-                                "Subjects": []
+                                "Subjects": {
+                                        "Math": {
+                                                "FA 1": null,
+                                                "FA 2": null,
+                                                "SA 1": null,
+                                                "FA 3": null,
+                                                "FA 4": null,
+                                                "SA 2": null
+                                        },
+                                        "Science": {
+                                                "FA 1": null,
+                                                "FA 2": null,
+                                                "SA 1": null,
+                                                "FA 3": null,
+                                                "FA 4": null,
+                                                "SA 2": null
+                                        },
+                                        "Computer Science": {
+                                                "FA 1": null,
+                                                "FA 2": null,
+                                                "SA 1": null,
+                                                "FA 3": null,
+                                                "FA 4": null,
+                                                "SA 2": null
+                                        },
+                                        "Music": {
+                                                "FA 1": null,
+                                                "FA 2": null,
+                                                "SA 1": null,
+                                                "FA 3": null,
+                                                "FA 4": null,
+                                                "SA 2": null
+                                        }
+                                }
                         }
                 }
         }
