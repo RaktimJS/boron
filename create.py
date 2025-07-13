@@ -4,7 +4,12 @@ JSON file.
 """
 
 
+import copy
 
+
+
+
+# Function for sensible type conversion
 def stringType(string: str):
         try:
                 int(string)
@@ -16,24 +21,38 @@ def stringType(string: str):
                 except ValueError:
                         return str
 
+
+# Variable to indenting nesting
 indent = 0
 
-def create(schema: dict) -> list:
+
+def create(schema: dict):
+        """
+        'create' function is for creating new instances of data. This is a recursive function
+        which recurses when the value of any key of the schema, that is a dictionary, is a
+        dictionary.
+
+        Proper indentation system has been implemented while countering nested dictionary for
+        a better UI and UX.
+
+        'stringType' function has been used for very sensitive case conversions.
+        """
+
+        instance = copy.deepcopy(schema)
         global indent
-        shape = []
 
         for key in schema:
-                arg = f'{" " * indent}{key}: '
+                arg = f'{" " * indent}{key}: '   # Variable for variable indentation spaces for nested value taking
 
                 if type(schema[key]) == dict:
                         indent += 4
                         print(arg)
-                        shape.append(create(schema[key]))
+                        instance[key] = create(schema[key])       # Recurse if the value of the key is a dictionary
                         indent -= 4
                 elif type(schema[key]) == list:
                         itemList = []
 
-                        while True:
+                        while True:     # Looped input taking if the value of the key is list type
                                 item = input(arg)
 
                                 if item.lower() != "end":
@@ -47,9 +66,9 @@ def create(schema: dict) -> list:
                                         itemList.append(item)
                                 else:
                                         break
-                        
-                        shape.append(itemList)
-                else:
+
+                        instance[key] = itemList
+                else:   # Input taking for scalar value
                         item = input(arg)
 
                         if item.lower() != "end":
@@ -60,9 +79,9 @@ def create(schema: dict) -> list:
                                 else:
                                         pass
 
-                        shape.append(item)
+                        instance[key] = item
 
-        return shape
+        return instance
 
 
 
