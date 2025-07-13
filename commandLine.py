@@ -134,7 +134,6 @@ def cacheFileCheck():
 
                 jsonSchema = schema.fetcher(filePath)        # Fetches schema of the cached JSON
                 # Data insertion function to be called here
-
         elif filePath != None:
                 """
                 Schema definition when the file is uncached
