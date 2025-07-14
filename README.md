@@ -1,35 +1,33 @@
-# JSON Specific Query Language (JSQL)
-_Read as "Jasqel" or "Jas-QL"_
+# Boron
 
 ## Made by: Raktimjyoti Sarma
 
 ---
 
-## What is JSQL?
+## What is Boron?
 
-**JSQL (JSON Specific Query Language)** is a domain-specific language (DSL) designed for querying and manipulating JSON data using a familiar, SQL-like syntax. Inspired by the clarity and structure of traditional SQL, JSQL brings that same power to hierarchical JSON documents.
+**Boron** is a dual-mode JSON data engine designed to make working with structured data simple and consistent. It uses a schema-driven, form-like system for creating data, and a command-style interface for querying, updating, and deleting it. Instead of relying on a custom language, Boron works directly with JSON structures, offering the clarity and control of SQL-like operations without introducing new syntax.
 
 **NOTE:** This is the MVP (Minimum Viable Product) version.
 
 ---
 
-## Why JSQL?
+## Why Boron?
 
-Sometimes, you don't need a full database engine. You just need to query and tweak some JSON. Whether you're building small-scale tools, handling mock APIs, or processing configuration files, JSQL makes it fast and easy.
+Sometimes, you don't need a full database. You just need to query and tweak some JSON. Whether you're prototyping, building small-scale tools, handling mock APIs, or processing configuration files, Boron makes it fast and easy.
 
-### Use JSQL if you:
+### Use Boron if you:
 - Want to query JSON with clean, readable syntax
 - Are tired of writing endless `for` loops and `if` conditions just to extract or modify data
 - Prefer structured querying over chaotic key-chasing
 - Love the elegance of SQL but need the flexibility of JSON
-
+ 
 ---
 
 ## Features
-
+- Form styled data creation for data and structural integrity
 - Select specific fields from JSON  
 - Filter using conditions (`WHERE`)  
 - Modify values inside nested structures  
-- SQL-like syntax: `SELECT`, `FROM`, `WHERE`, etc.  
 - Lightweight and easy to use—no dependencies or bloat
 ---
