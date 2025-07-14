@@ -23,7 +23,7 @@ def stringType(string: str):
 
 
 # Variable to indenting nesting
-indent = 0
+indent = 8
 
 
 def create(schema: dict):
@@ -56,10 +56,12 @@ def create(schema: dict):
                                 item = input(arg)
 
                                 if item.lower() != "end":
-                                        if stringType(item) == int:
+                                        if stringType(item.strip()) == int:
                                                 item = int(item)
-                                        elif stringType(item) == float:
+                                        elif stringType(item.strip()) == float:
                                                 item = float(item)
+                                        elif item.strip() == "":
+                                                item = None
                                         else:
                                                 pass
 
@@ -72,10 +74,12 @@ def create(schema: dict):
                         item = input(arg)
 
                         if item.lower() != "end":
-                                if stringType(item) == int:
+                                if stringType(item.strip()) == int:
                                         item = int(item)
-                                elif stringType(item) == float:
+                                elif stringType(item.strip()) == float:
                                         item = float(item)
+                                elif item.strip() == "":
+                                        item = None
                                 else:
                                         pass
 
