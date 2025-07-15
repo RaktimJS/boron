@@ -39,3 +39,51 @@ def fetcher(filePath:str):
                 if filePath in os.path.normpath(i["path"]):
                         schema = i["schema"]
                         return schema
+
+
+
+
+# Variable for indenting nesting
+indent = 4
+
+def schemadef():
+        """
+        This function lets user define schema for a JSON file that has not been recorded in
+        'cache.json'.
+        
+        When entering the name of a key, the user may end the key name with a pair of curly
+        braces ("{}") or square bracket ("[]") to define non scalar data type — dictionary
+        and list respectively.
+
+        If the value if a dictionary, the function will recurse. And at the end it returns 
+        a variable named "schemaDefinition"
+        """
+
+        global indent
+
+        schemaDefinition = {}
+        arg = f'{" " * indent}'
+
+        while True:
+                key = input(arg)
+                key = key.strip()
+
+                if "__end__" not in key:
+                        if key.endswith("[]"):          # When the value of a key is a list
+                                schemaDefinition[key[:len(key) - 2]] = []
+                        elif key.endswith("{}"):        # When the value of a key is a dictionary
+                                indent += 4
+                                schemaDefinition[key[:len(key) - 2]] = schemadef()
+                                indent -= 4
+                        else:
+                                schemaDefinition[key] = None
+                else:
+                        break
+
+        return schemaDefinition
+
+
+
+
+
+

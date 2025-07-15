@@ -23,7 +23,7 @@ def stringType(string: str):
 
 
 # Variable to indenting nesting
-indent = 8
+indent = 4
 
 
 def create(schema: dict):
