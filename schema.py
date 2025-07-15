@@ -81,9 +81,3 @@ def schemadef():
                         break
 
         return schemaDefinition
-
-
-
-
-
-

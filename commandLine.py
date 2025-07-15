@@ -3,10 +3,8 @@
 
 
 
-import os
-import json
-
-import schema
+import os, json
+import schema, create
 
 os.system('cls' if os.name == "nt" else "clear")
 
@@ -18,7 +16,11 @@ os.system('cls' if os.name == "nt" else "clear")
 Checking existence, and extension, if a file exists in the entered path
 """
 
+filePath = ""
+
 def fileTypeExistenceVerify():
+        global filePath
+
         while True:
                 filePath = input("Enter the JSON path: ").strip()
 
@@ -48,6 +50,8 @@ or not
 """
 
 def jsonValidity():
+        global filePath
+
         filePath = fileTypeExistenceVerify()
 
         try:
@@ -74,6 +78,8 @@ and ease of usage
 """
 
 def cacheFileCheck():
+        global filePath
+
         filePathList = []
         filePath = jsonValidity()
 
@@ -133,13 +139,35 @@ def cacheFileCheck():
                 """
 
                 jsonSchema = schema.fetcher(filePath)        # Fetches schema of the cached JSON
-                # Data insertion function to be called here
+                return jsonSchema
         elif filePath != None:
                 """
                 Schema definition when the file is uncached
                 """
 
-                print("Schema definition required")
+                while True:
+                        print("\nPlease define the schema: ")
+
+                        jsonSchema = schema.schemadef()       # Lets user define schema for an uncached JSON
+
+                        save = input("Do you want to save the schema? (Y/N): ")
+
+                        if save.lower() != "n":
+                                newSchema = {}
+                                newSchema["path"] = filePath
+                                newSchema["schema"] = jsonSchema
+
+                                with open("cache.json", "r") as file:
+                                        data = json.load(file)
+                                        data.append(newSchema)
+
+                                with open("cache.json", "w") as file:
+                                        json.dump(data, file, indent = 8)
+
+                                break
+                        else:
+                                print("Schema discarded")
+                return jsonSchema
         else:
                 print("Garbage")
 
@@ -147,7 +175,7 @@ def cacheFileCheck():
 
 
 if __name__ == "__main__":
-        cacheFileCheck()
+        jsonSchema = cacheFileCheck()
 
         while True:
-                input(">>> ")
+                inp = input(">>> ")
