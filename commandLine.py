@@ -150,4 +150,4 @@ if __name__ == "__main__":
         cacheFileCheck()
 
         while True:
-                input("boron ::: ")
+                input(">>> ")
