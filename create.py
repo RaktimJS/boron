@@ -4,7 +4,7 @@ JSON file.
 """
 
 
-import copy
+import copy, json
 
 
 
@@ -26,7 +26,7 @@ def stringType(string: str):
 indent = 4
 
 
-def create(schema: dict):
+def populator(schema: dict, filePath: str):
         """
         'create' function is for creating new instances of data. This is a recursive function
         which recurses when the value of any key of the schema, that is a dictionary, is a
@@ -38,8 +38,10 @@ def create(schema: dict):
         'stringType' function has been used for very sensitive case conversions.
         """
 
-        instance = copy.deepcopy(schema)
+        value = copy.deepcopy(schema)
         global indent
+        arg = f'{" " * indent}'
+
 
         for key in schema:
                 arg = f'{" " * indent}{key}: '   # Variable for variable indentation spaces for nested value taking
@@ -47,7 +49,7 @@ def create(schema: dict):
                 if type(schema[key]) == dict:
                         indent += 4
                         print(arg)
-                        instance[key] = create(schema[key])       # Recurse if the value of the key is a dictionary
+                        value[key] = populator(schema[key], filePath)       # Recurse if the value of the key is a dictionary
                         indent -= 4
                 elif type(schema[key]) == list:
                         itemList = []
@@ -69,7 +71,7 @@ def create(schema: dict):
                                 else:
                                         break
 
-                        instance[key] = itemList
+                        value[key] = itemList
                 else:   # Input taking for scalar value
                         item = input(arg)
 
@@ -83,6 +85,33 @@ def create(schema: dict):
                                 else:
                                         pass
 
-                        instance[key] = item
+                        value[key] = item
+        return value
 
-        return instance
+
+
+def create(schema: dict, filePath:str):
+        global indent
+        arg = f'{" " * indent}'
+
+
+        try:
+                with open(filePath, "r") as f:
+                        data = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+                data = {}
+
+
+        while True:
+                entry_id = input(f"{arg}ID: ")
+
+                if entry_id in list(data.keys()):
+                        print(f"ID {entry_id} already exists")
+                else:
+                        break
+
+        new_record = populator(schema, filePath)
+        data[entry_id] = new_record
+
+        with open(filePath, "w") as f:
+                json.dump(data, f, indent=8)
