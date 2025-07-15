@@ -1,43 +1,41 @@
 [
         {
-                "path": "C:/Users/hp/Desktop/Master_Projects/jsql/test.json",
+                "path": "C:\\Users\\hp\\Desktop\\Master_Projects\\jsql\\test.json",
                 "schema": {
-                        "id": {
-                                "Name": null,
-                                "Class": null,
-                                "Subjects": {
-                                        "Math": {
-                                                "FA 1": null,
-                                                "FA 2": null,
-                                                "SA 1": null,
-                                                "FA 3": null,
-                                                "FA 4": null,
-                                                "SA 2": null
-                                        },
-                                        "Science": {
-                                                "FA 1": null,
-                                                "FA 2": null,
-                                                "SA 1": null,
-                                                "FA 3": null,
-                                                "FA 4": null,
-                                                "SA 2": null
-                                        },
-                                        "Computer Science": {
-                                                "FA 1": null,
-                                                "FA 2": null,
-                                                "SA 1": null,
-                                                "FA 3": null,
-                                                "FA 4": null,
-                                                "SA 2": null
-                                        },
-                                        "Music": {
-                                                "FA 1": null,
-                                                "FA 2": null,
-                                                "SA 1": null,
-                                                "FA 3": null,
-                                                "FA 4": null,
-                                                "SA 2": null
-                                        }
+                        "Name": null,
+                        "Class": null,
+                        "Subjects": {
+                                "Math": {
+                                        "FA1": null,
+                                        "FA2": null,
+                                        "SA1": null,
+                                        "FA3": null,
+                                        "FA4": null,
+                                        "SA2": null
+                                },
+                                "Science": {
+                                        "FA1": null,
+                                        "FA2": null,
+                                        "SA1": null,
+                                        "FA3": null,
+                                        "FA4": null,
+                                        "SA2": null
+                                },
+                                "Computer": {
+                                        "FA1": null,
+                                        "FA2": null,
+                                        "SA1": null,
+                                        "FA3": null,
+                                        "FA4": null,
+                                        "SA2": null
+                                },
+                                "Music": {
+                                        "FA1": null,
+                                        "FA2": null,
+                                        "SA1": null,
+                                        "FA3": null,
+                                        "FA4": null,
+                                        "SA2": null
                                 }
                         }
                 }
