@@ -96,7 +96,9 @@ def boot_loader(file_path: str,
 
 
 if __name__ == "__main__":
-        while True:
-                inp = input(">>> ")
+        inp = input(">>> ")
+        jsonSchema = boot_loader(inp)
 
-                jsonSchema = boot_loader(inp)
+        if jsonSchema:
+                while True:
+                        print("Hello")
