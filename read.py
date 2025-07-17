@@ -1,7 +1,7 @@
 """
 This module contains functions for data query.
 
-NOTE: v1 doesn't support data query like
+NOTE: v1 doesn't support data query
 """
 
 

@@ -4,7 +4,8 @@
 
 
 import os, json
-import schema, create, read
+import schema
+import create, read, delete
 
 os.system('cls' if os.name == "nt" else "clear")
 
