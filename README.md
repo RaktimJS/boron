@@ -1,4 +1,4 @@
-# Boron
+# Boron v1.0
 
 ## Made by: Raktimjyoti Sarma
 
@@ -6,7 +6,7 @@
 
 ## What is Boron?
 
-**Boron** is a dual-mode JSON data engine designed to make working with structured data simple and consistent. It uses a schema-driven, form-like system for creating data, and a command-style interface for querying, updating, and deleting it. Instead of relying on a custom language, Boron works directly with JSON structures, offering the clarity and control of SQL-like operations without introducing new syntax.
+**Boron** is a dual-mode JSON data engine designed to make working with structured data simple and consistent. It uses a schema-driven, form-like system for creating and updating data, and a command-style interface for querying and deleting it. Instead of relying on a custom language, Boron works directly with JSON structures, offering the clarity and control of SQL-like operations without introducing new syntax.
 
 **NOTE:** This is the MVP (Minimum Viable Product) version.
 
