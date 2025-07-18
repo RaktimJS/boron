@@ -25,9 +25,8 @@ Sometimes, you don't need a full database. You just need to query and tweak some
 ---
 
 ## Features
-- Form styled data creation for data and structural integrity
-- Select specific fields from JSON  
-- Filter using conditions (`WHERE`)  
-- Modify values inside nested structures  
+- Form-styled data creation and update systems for maintaining data and structural integrity
+- Select specific fields from JSON
+- Modify values inside nested structures
 - Lightweight and easy to use—no dependencies or bloat
 ---
