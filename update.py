@@ -37,8 +37,9 @@ def inputTaker(Dict: dict):
 
                                 if item != "__end__":
                                         item = item.strip()
-                                        if not item:  # Check for empty input
-                                                newList.append(None)
+                                        if not item:  # Empty input - keep old list
+                                                Dict[i] = Dict[i]
+                                                break
                                         elif stringType(item) == int:
                                                 newList.append(int(item))
                                         elif stringType(item) == float:
@@ -48,7 +49,8 @@ def inputTaker(Dict: dict):
                                 else:
                                         break
 
-                        Dict[i] = newList
+                        if newList:  # Only update if new values were added
+                                Dict[i] = newList
                 elif type(Dict[i]) == dict:
                         indent += 4
                         print(arg)
@@ -59,14 +61,14 @@ def inputTaker(Dict: dict):
 
                         if item != "__end__":
                                 item = item.strip()
-                                if not item:  # Check for empty input
-                                        item = None
+                                if not item:  # Empty input - keep old value
+                                        continue
                                 elif stringType(item) == int:
-                                        item = int(item)
+                                        Dict[i] = int(item)
                                 elif stringType(item) == float:
-                                        item = float(item)
-                        
-                        Dict[i] = item
+                                        Dict[i] = float(item)
+                                else:
+                                        Dict[i] = item
 
         return Dict
 
