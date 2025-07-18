@@ -5,9 +5,8 @@
 
 import os, json
 import schema
-import create, read, delete
+import create, read, update, delete
 
-os.system('cls' if os.name == "nt" else "clear")
 
 filePath: str = ""
 
@@ -78,7 +77,7 @@ def boot_loader(input_path: str, cache_file: str = "cache.json") -> dict | None:
                 cache_data.append({"path": normalized, "schema": new_schema})
                 try:
                         with open(cache_file, "w") as f:
-                                json.dump(cache_data, f, indent=4)
+                                json.dump(cache_data, f, indent=8)
                 except Exception:
                         print(f"Error: Failed to write to '{cache_file}'")
                         return None
@@ -89,10 +88,41 @@ def boot_loader(input_path: str, cache_file: str = "cache.json") -> dict | None:
 
 
 
-if __name__ == "__main__":
-        inp = input(">>> ")
-        jsonSchema = boot_loader(inp)
 
-        if jsonSchema:
+os.system("cls" if os.name == "nt" else "clear")
+
+while True:
+        path = input("File path: ")
+        jsonSchema = boot_loader(path)
+
+        if not jsonSchema:
+                input("\nPress Enter to continue\n")
+
+        if jsonSchema and filePath:
                 while True:
                         inp = input(">>> ")
+
+                        identifier = inp.strip().split()
+
+                        if identifier[0].lower() == "create":
+                                print("")
+                                create.create(jsonSchema, filePath)
+                                print("")
+                        elif identifier[0].lower() == "show":
+                                print("")
+                                read.read(inp, jsonSchema, filePath)
+                                print("")
+                        elif identifier[0].lower() == "update":
+                                print("")
+                                update.update(filePath, identifier[1])
+                                print("")
+                        elif identifier[0].lower() == "delete":
+                                print("")
+                                delete.delete(filePath, identifier[1])
+                                print("")
+                        elif identifier[0].lower() == "cd":
+                                break
+                        elif identifier[0] == "cls":
+                                os.system("cls" if os.name == "nt" else "clear")
+                        else:
+                                print("Invalid command\n")
