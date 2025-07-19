@@ -29,4 +29,18 @@ Sometimes, you don't need a full database. You just need to query and tweak some
 - Select specific fields from JSON
 - Modify values inside nested structures
 - Lightweight and easy to use—no dependencies or bloat
+
 ---
+
+## How to use?
+
+### Check `USERGUIDE.md`
+
+---
+
+## Learnings
+1. Handling nested and dynamic dictionaries
+2. Schema definition and enforcing schema while data creation
+3. Maintaining schema and data integrity
+4. Code modularization and software architecturing
+5. Advanced file handling
