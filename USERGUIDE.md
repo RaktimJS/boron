@@ -15,6 +15,8 @@ cd <repository-directory>
 python commandLine.py
 ```
 
+### **NOTE:** `commandLine.py' serves as the entry point to the program
+
 ## Important Notes
 
 ### File Handling
