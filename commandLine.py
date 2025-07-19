@@ -104,25 +104,28 @@ while True:
 
                         identifier = inp.strip().split()
 
-                        if identifier[0].lower() == "create":
-                                print("")
-                                create.create(jsonSchema, filePath)
-                                print("")
-                        elif identifier[0].lower() == "show":
-                                print("")
-                                read.read(inp, jsonSchema, filePath)
-                                print("")
-                        elif identifier[0].lower() == "update":
-                                print("")
-                                update.update(filePath, identifier[1])
-                                print("")
-                        elif identifier[0].lower() == "delete":
-                                print("")
-                                delete.delete(filePath, identifier[1])
-                                print("")
-                        elif identifier[0].lower() == "cd":
-                                break
-                        elif identifier[0] == "cls":
-                                os.system("cls" if os.name == "nt" else "clear")
-                        else:
-                                print("Invalid command\n")
+                        try:
+                                if identifier[0].lower() == "create":
+                                        print("")
+                                        create.create(jsonSchema, filePath)
+                                        print("")
+                                elif identifier[0].lower() == "show":
+                                        print("")
+                                        read.read(inp, jsonSchema, filePath)
+                                        print("")
+                                elif identifier[0].lower() == "update":
+                                        print("")
+                                        update.update(filePath, identifier[1])
+                                        print("")
+                                elif identifier[0].lower() == "delete":
+                                        print("")
+                                        delete.delete(filePath, identifier[1])
+                                        print("")
+                                elif identifier[0].lower() == "cd":
+                                        break
+                                elif identifier[0] == "cls":
+                                        os.system("cls" if os.name == "nt" else "clear")
+                                else:
+                                        print("Invalid command\n")
+                        except KeyError:
+                                print("Error: Please provide an ID")

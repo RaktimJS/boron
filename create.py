@@ -57,7 +57,7 @@ def populator(schema: dict, filePath: str):
                         while True:     # Looped input taking if the value of the key is list type
                                 item = input(arg)
 
-                                if item.lower() != "end":
+                                if item.lower() != "__end__":
                                         if stringType(item.strip()) == int:
                                                 item = int(item)
                                         elif stringType(item.strip()) == float:
@@ -107,6 +107,8 @@ def create(schema: dict, filePath:str):
 
                 if entry_id in list(data.keys()):
                         print(f"ID {entry_id} already exists")
+                if " " in entry_id:
+                        print("ID can't have blank space")
                 else:
                         break
 
