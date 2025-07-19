@@ -34,7 +34,7 @@ Sometimes, you don't need a full database. You just need to query and tweak some
 
 ## How to use?
 
-### Check `USERGUIDE.md`
+### Check [`USERGUIDE.md`](./USERGUIDE.md)
 
 ---
 
@@ -44,3 +44,9 @@ Sometimes, you don't need a full database. You just need to query and tweak some
 3. Maintaining schema and data integrity
 4. Code modularization and software architecturing
 5. Advanced file handling
+
+---
+
+## License
+
+Licensed under the [MIT License](./LICENSE)
