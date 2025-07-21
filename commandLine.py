@@ -21,7 +21,9 @@ def boot_loader(input_path: str, cache_file: str = "cache.json") -> dict | None:
         global filePath
 
         # Normalize & existence checks
+        input_path = os.path.abspath(input_path)    # Fetches the absolute path of a file
         normalized = os.path.normpath(input_path)
+
         if not os.path.isfile(normalized):
                 print("Error: File does not exist")
                 return None
