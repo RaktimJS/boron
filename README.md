@@ -1,4 +1,4 @@
-# Boron v1.0
+# Boron v1.1
 
 ## Made by: Raktimjyoti Sarma
 
