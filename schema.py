@@ -71,18 +71,29 @@ def schemadef():
                 if "__end__" not in key:
                         if "__end__" not in key:
                                 # Strip any type indicators before checking for duplicates
-                                base_key = key.removesuffix("[]").removesuffix("{}")
-                                if base_key not in schemaDefinition:
+                                baseKey = key.removesuffix("[]").removesuffix("{}")
+
+                                if baseKey not in schemaDefinition:
                                         if key.endswith("[]"):          # When the value of a key is a list
-                                                schemaDefinition[key[:len(key) - 2]] = []
+                                                schemaDefinition[baseKey] = []
                                         elif key.endswith("{}"):        # When the value of a key is a dictionary
                                                 indent += 4
-                                                schemaDefinition[key[:len(key) - 2]] = schemadef()
+                                                schemaDefinition[baseKey] = schemadef()
                                                 indent -= 4
                                         else:
-                                                schemaDefinition[key] = None
+                                                schemaDefinition[baseKey] = None
                                 else:
-                                        print(f"{arg}\033[A\033[KField \"{base_key}\" already exists")
+                                        if key.endswith("{}"):
+                                                confirm = input(f"{arg}Are you sure you want to remove {baseKey}? (y/n): ")
+
+                                                if confirm.lower() != "y":
+                                                        pass
+                                                else:
+                                                        print(f"\033[A\033[K{arg}\033[A\033[K{baseKey} \"{baseKey}\" removed")
+                                                        del schemaDefinition[baseKey]
+                                        else:
+                                                print(f"{arg}\033[A\033[K{baseKey} \"{baseKey}\" removed")
+                                                del schemaDefinition[baseKey]
                 else:
                         break
 

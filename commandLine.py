@@ -18,6 +18,7 @@ def boot_loader(input_path: str, cache_file: str = "cache.json") -> dict | None:
         Load and validate a JSON file and manage schema caching.
         On success, assigns the file's normalized path to global filePath.
         """
+
         global filePath
 
         # Normalize & existence checks
