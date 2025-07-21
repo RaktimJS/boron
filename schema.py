@@ -69,14 +69,20 @@ def schemadef():
                 key = key.strip()
 
                 if "__end__" not in key:
-                        if key.endswith("[]"):          # When the value of a key is a list
-                                schemaDefinition[key[:len(key) - 2]] = []
-                        elif key.endswith("{}"):        # When the value of a key is a dictionary
-                                indent += 4
-                                schemaDefinition[key[:len(key) - 2]] = schemadef()
-                                indent -= 4
-                        else:
-                                schemaDefinition[key] = None
+                        if "__end__" not in key:
+                                # Strip any type indicators before checking for duplicates
+                                base_key = key.removesuffix("[]").removesuffix("{}")
+                                if base_key not in schemaDefinition:
+                                        if key.endswith("[]"):          # When the value of a key is a list
+                                                schemaDefinition[key[:len(key) - 2]] = []
+                                        elif key.endswith("{}"):        # When the value of a key is a dictionary
+                                                indent += 4
+                                                schemaDefinition[key[:len(key) - 2]] = schemadef()
+                                                indent -= 4
+                                        else:
+                                                schemaDefinition[key] = None
+                                else:
+                                        print(f"{arg}\033[A\033[KField \"{base_key}\" already exists")
                 else:
                         break
 
