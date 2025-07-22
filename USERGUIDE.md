@@ -1,4 +1,4 @@
-# **Boron v1.0 → How to use?**
+# **Boron v1.1 → How to use?**
 
 ## Installation
 
