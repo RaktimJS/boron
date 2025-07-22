@@ -77,6 +77,7 @@ Please define the schema:
 - `[]` suffix: Array/list field  
 - Use `__end__` to close each object definition
 - Automatic indentation of nested objects by 4 spaces
+- Enter the same field name again under the same hierarchy to remove it
 
 ---
 
