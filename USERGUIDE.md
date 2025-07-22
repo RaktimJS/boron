@@ -261,7 +261,7 @@ Record with ID "1" deleted successfully
 - The schema remains unchanged
 - File is automatically saved after deletion
 
-#### Tips:
+## Tips:
 - Use `show *` to view all records before deletion
 - Double-check the ID to avoid deleting wrong records
 - No confirmation prompt in v1.1 - be careful!
