@@ -125,7 +125,7 @@ Once the schema is defined or a cached file is loaded, type `create` to create a
 - For array fields: 
   - Enter one value per line
   - Type `__end__` to finish the array
-  - Nested arrays are not suppported in **v1.0**
+  - Nested arrays are not suppported in **v1.1**
 - Press Enter without input to set `null` value
 - Numbers are automatically converted to proper types
 - IDs must be unique for each record
@@ -264,4 +264,5 @@ Record with ID "1" deleted successfully
 #### Tips:
 - Use `show *` to view all records before deletion
 - Double-check the ID to avoid deleting wrong records
-- No confirmation prompt in v1.0 - be careful!
+- No confirmation prompt in v1.1 - be careful!
+- Use `cd` to change active file
