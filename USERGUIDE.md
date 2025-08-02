@@ -1,4 +1,4 @@
-# **Boron v1.1 → How to use?**
+# **Boron v1.2 → How to use?**
 
 ## Installation
 
@@ -42,22 +42,27 @@ python commandLine.py
 ### 1. **Schema definition:**
 
 ```python
-File path: C:\path\to\your\json_file.json        # New file, not in cache
-# Schema structure definition starts, if the file is not cached
+File path: C:\path\to\your\json_file.json       # New file, not in cache
+# If the entered path is a garbage, it doesn't end with ".json" or the directory of doesn't exist, it will prompt an error message
 
+File does not exist
+Create a new file in the same name and loaction? [RANDOM VALUES WILL BE CONSIDERED AS n] (y/n): y       # If the entered path doesn't end with ".json" it will throw a message
+
+
+# Schema structure definition starts, if chosen "y", else, it will go back to 
 Please define the schema:
-    Name                          # Single value field (no suffix required)
+    Name        # Single value field (no suffix required)
     Class
-    Subjects{}                    # Object field - use "{}" suffix
-        Math{}                    # Nested object - indented by 4 spaces automatically
-            FA1                   # Fields inside Math object
+    Subjects{}        # Object field - use "{}" suffix
+        Math{}        # Nested object - indented by 4 spaces automatically
+            FA1        # Fields inside Math object
             FA2
             SA1
             FA3
             FA4
             SA2
-            __end__               # End of object definition using "__end__" clause
-        Science{}                 # Another subject object
+            __end__        # End of object definition using "__end__" clause
+        Science{}        # Another subject object
             FA1
             FA2
             # More fields...
@@ -65,9 +70,9 @@ Please define the schema:
         Computer Science{}        # Third subject object
             # Fields here...
             __end__
-        __end__                   # End of Subjects object
-    Extracurriculars[]            # Array field - use "[]" suffix
-    __end__                       # End of root schema
+        __end__        # End of Subjects object
+    Extracurriculars[]        # Array field - use "[]" suffix
+    __end__        # End of root schema
 >>> 
 ```
 
@@ -88,11 +93,11 @@ Once the schema is defined or a cached file is loaded, type `create` to create a
 ```python
 >>> create
 
-    ID: 1                            # Enter unique ID for the record
-    Name: Hrithik Roshan             # Enter scalar values directly
+    ID: 1        # Enter unique ID for the record
+    Name: Hrithik Roshan        # Enter scalar values directly
     Class: 10
-    Subjects:                        # Object fields show a new line
-        Math:                        # Nested objects are indented
+    Subjects:        # Object fields show a new line
+        Math:        # Nested objects are indented
             FA1: 85
             FA2: 92
             SA1: 88
@@ -113,7 +118,7 @@ Once the schema is defined or a cached file is loaded, type `create` to create a
             FA3: 89
             FA4: 91
             SA2: 94
-    Extracurriculars: Acting         # For array fields, enter values one per line
+    Extracurriculars: Acting        # For array fields, enter values one per line
     Extracurriculars: Dancing
     Extracurriculars: Gymming
     Extracurriculars: __end__        # Type '__end__' when done with the array. You may enter any number of scalar values in an array
@@ -200,14 +205,14 @@ To query data, use the `show` command followed by a path expression:
 Use the `update` command followed by a record ID to modify existing data:
 
 ```python
->>> update 1                                                              # Update record ID 1
+>>> update 1        # Update record ID 1
 
-Name : Hrithik Roshan → Henry Cavill                                      # Format: current_value → new_value
+Name : Hrithik Roshan → Henry Cavill        # Format: current_value → new_value
 Class : 10 → 11
 Subjects:
     Math:
-        FA1 : 85 → 88                                                     # Enter new value to update
-        FA2 : 92 →                                                        # Press Enter to keep value unchanged
+        FA1 : 85 → 88        # Enter new value to update
+        FA2 : 92 →           # Press Enter to keep value unchanged
         SA1 : 88 → 90
         FA3 : 90 → 91
         FA4 : 87 → 100
@@ -226,9 +231,9 @@ Subjects:
         FA3 : 89 → 
         FA4 : 91 → 
         SA2 : 94 → 
-Extracurriculars : ["Acting", "Dancing", "Gymming", "Singing"] → Chess    # Update array values
+Extracurriculars : ["Acting", "Dancing", "Gymming", "Singing"] → Chess        # Update array values
 Extracurriculars : ["Acting", "Dancing", "Gymming", "Singing"] → Debate
-Extracurriculars : __end__                                                # End array input
+Extracurriculars : __end__        # End array input
 ```
 
 #### Key Points:
@@ -251,7 +256,7 @@ Extracurriculars : __end__                                                # End 
 Use the `delete` command followed by a record ID to remove data:
 
 ```python
->>> delete 1                     # Delete record with ID 1
+>>> delete 1        # Delete record with ID 1
 Record with ID "1" deleted successfully
 ```
 

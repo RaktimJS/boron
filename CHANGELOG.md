@@ -1,3 +1,8 @@
+# 1.2.0 (August 2, 2025)
+
+### Additions:
+- Optionally create new file in the entered path if file doesn't exist
+
 # 1.1.0 (July 21, 2025)
 
 ### Additions:
